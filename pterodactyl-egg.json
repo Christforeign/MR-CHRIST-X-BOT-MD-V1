@@ -1,0 +1,74 @@
+{
+  "_comment": "PTERODACTYL PANEL - Egg CHRIST X V1 - Upload ce fichier dans ton panel",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2026-05-29T00:00:00+00:00",
+  "name": "CHRIST BOT X",
+  "author": "christforeign@github.com",
+  "description": "Bot WhatsApp multi-device avec Baileys - CHRIST X V1 par 亗Ｍｒｃｈｒｉｓｔｘ亗. Connexion par code de couplage (sans QR).",
+  "features": [],
+  "docker_images": {
+    "ghcr.io/parkervcp/yolks:nodejs_18": "ghcr.io/parkervcp/yolks:nodejs_18",
+    "ghcr.io/parkervcp/yolks:nodejs_20": "ghcr.io/parkervcp/yolks:nodejs_20",
+    "ghcr.io/parkervcp/yolks:nodejs_22": "ghcr.io/parkervcp/yolks:nodejs_22"
+  },
+  "file_denylist": [],
+  "startup": "node index.js",
+  "config": {
+    "files": "{}",
+    "startup": "{\"done\": \"CHRIST X V1 CONNECT\"}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/bin/bash\ncd /home/container\napt-get update -y 2>/dev/null || true\napt-get install -y ffmpeg 2>/dev/null || true\nnpm install --production\nmkdir -p session temp\necho 'Installation terminee!'",
+      "container": "ghcr.io/parkervcp/yolks:nodejs_18",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Bot Number",
+      "description": "Numero WhatsApp du bot SANS le + ni espaces. Exemple: 50937081286",
+      "env_variable": "BOT_NUMBER",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string",
+      "field_type": "text"
+    },
+    {
+      "name": "Session Secret",
+      "description": "Cle secrete pour la session (mets ce que tu veux)",
+      "env_variable": "SESSION_SECRET",
+      "default_value": "christxbot2026",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string",
+      "field_type": "text"
+    },
+    {
+      "name": "RapidAPI Key",
+      "description": "Cle RapidAPI (optionnel - Instagram/Facebook download)",
+      "env_variable": "RAPID_API_KEY",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "field_type": "text"
+    },
+    {
+      "name": "Remove.bg API Key",
+      "description": "Cle API Remove.bg (optionnel - supprimer fond image)",
+      "env_variable": "REMOVEBG_API_KEY",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "field_type": "text"
+    }
+  ]
+}
